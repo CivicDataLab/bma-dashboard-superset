@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:15
+    container_name: superset_db
+    restart: unless-stopped
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    env_file:
+      - path: .env # default
+        required: true
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U superset -d superset"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+  redis:
+    image: redis:7
+    container_name: superset_cache
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis:/data
+
+  superset:
+    build: .
+    env_file:
+      - path: .env # default
+        required: true
+      - path: .env-local # optional override
+        required: false
+    volumes:
+      - ./superset_config.py:/app/superset_config.py
+      - ./custom:/app/superset/static/custom
+    container_name: superset_app
+    # restart: unless-stopped
+    # command: gunicorn -w 10 -k gevent --worker-connections 1000 --timeout 120 -b  0.0.0.0:8088 --limit-request-line 0 --limit-request-field_size 0 "superset.app:create_app()"
+    command: ["gunicorn", "--bind", "0.0.0.0:8088", "--workers", "5", "--timeout", "120", "superset.app:create_app()"]
+    ports:
+      - "80:8088"
+    depends_on:
+      db:
+        condition: service_healthy
+        restart: true
+      redis:
+        condition: service_started
+
+volumes:
+  db_home:
+    external: false
+  redis:
+    external: false

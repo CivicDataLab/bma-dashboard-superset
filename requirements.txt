@@ -1,0 +1,2 @@
+# pckage to install PostgresSQL support for superset to work 
+psycopg2-binary==2.9.9
