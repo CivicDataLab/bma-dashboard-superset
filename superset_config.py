@@ -1,8 +1,10 @@
 import os
 
-APP_NAME = os.getenv('COMPOSE_PROJECT_NAME')
-# FAVICONS = [{"href": "/static/assets/images/custom_img_favicon.png"}]
-APP_ICON = "/static/custom/logos/superset-logo-horiz.png"
+APP_NAME = "BMA Dashboard"
+FAVICONS = [{"href": "/static/custom/logos/bma-logo-favicon.png"}]
+APP_ICON = "/static/custom/logos/bma-logo-horiz.png"
+
+LOGO_TOOLTIP = "BMA Dashboard"
 
 ROW_LIMIT = 5000
 SECRET_KEY = os.getenv('SUPERSET_SECRET_KEY')
@@ -11,7 +13,7 @@ SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 # Flask-WTF flag for CSRF
 WTF_CSRF_ENABLED = True
 # Add endpoints that need to be exempt from CSRF protection
-WTF_CSRF_EXEMPT_LIST = []
+WTF_CSRF_EXEMPT_LIST = os.getenv('CSRF_EXEMPT_LIST')
 # A CSRF token that expires in 1 year
 WTF_CSRF_TIME_LIMIT = 60 * 60 * 24 * 365
 
@@ -36,7 +38,7 @@ THEME_OVERRIDES = {
   "borderRadius": 4,
   "colors": {
     "primary": {
-      "base": 'green', 
+      "base": '#005934', 
     },
   }
 }
