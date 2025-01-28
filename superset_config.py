@@ -40,5 +40,15 @@ THEME_OVERRIDES = {
     "primary": {
       "base": '#005934', 
     },
+    "grayscale": {
+      "base": '#666666',
+      "dark1": '#323232',
+      "dark2": '#000000',
+      "light1": '#B2B2B2',
+      "light2": '#E0E0E0',
+      "light3": '#00744b',
+      "light4": '#F7F7F7',
+      "light5": '#FFFFFF',
+    },
   }
 }
