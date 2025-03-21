@@ -8,4 +8,5 @@ superset init
 echo "Initialize Superset"
 
 superset set-database-uri -u $SQLALCHEMY_DATABASE_URI -d dashboard
+superset set-database-uri -u $PIPELINE_DATABASE_URI -d pipeline
 exec "$@"
