@@ -4,6 +4,7 @@ APP_NAME = "BMA Dashboard"
 FAVICONS = [{"href": "/static/custom/logos/bma-logo-favicon.png"}]
 APP_ICON = "/static/custom/logos/bma-logo-horiz.png"
 
+LOGO_TARGET_PATH = "/superset/dashboard/10"
 LOGO_TOOLTIP = "BMA Dashboard"
 
 ROW_LIMIT = 5000
@@ -11,13 +12,47 @@ SECRET_KEY = os.getenv('SUPERSET_SECRET_KEY')
 SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 PIPELINE_DATABASE_URI = os.getenv('PIPELINE_DATABASE_URI')
 
-CSV_UPLOAD_MAX_SIZE= 1024 * 1024 * 1024
+CSV_UPLOAD_MAX_SIZE= 2 * 1024 * 1024 * 1024
 
 FEATURE_FLAGS = {
     "ENABLE_JAVASCRIPT_CONTROLS": True,
     "ALLOW_JS_CUSTOM_VIZ": True,
-    "ENABLE_EXPLORE_JSON":True
+    "ENABLE_EXPLORE_JSON":True,
+    "ENABLE_ECHARTS_FILTER_SCOPING": True,
+    "DASHBOARD_NATIVE_FILTERS": True,
+    "DASHBOARD_CROSS_FILTERS": True,
+    "ENABLE_EXPLORE_DRAG_AND_DROP": True,
+    "GENERIC_CHART_AXES": True,
 }
+
+
+EXTRA_CATEGORICAL_COLOR_SCHEMES = [
+    {
+        "id": 'riskPointColors',
+        "description": 'Risk Point Performance map chart color',
+        "label": 'Risk Point Performance Map',
+        "colors": ['#fbc634', '#228121', '#682a74', '#ac2826', '#d4822a']
+    }, {
+        "id": 'riskPointBarColors',
+        "description": 'Risk Point Performance bar chart color',
+        "label": 'Risk Point Performance Bar Chart',
+        "colors": ['#eab932', '#682a74', '#228121', '#e04f9c', '#ac2826']
+    }, {
+        "id": 'riskPointStatusAlphabetical',
+        "description": 'Risk Point status alphabetical order',
+        "label": 'Risk Point Status Alphabetical',
+        "colors": ['#228121', '#e04f9c', '#eab932', '#682a74', '#ac2826']
+    }, {
+        "id": 'riskPointCategories',
+        "description": 'Risk Point categories color',
+        "label": 'Risk Point Categories',
+        "colors": ['#8400A8', '#004DA8', '#A85B00']
+    }, {
+        "id": 'combinationRiskPoints',
+        "description": 'Risk Point combination color',
+        "label": 'Combination Risk Points',
+        "colors": ['#228121', '#e04f9c', '#eab932', '#682a74', '#ac2826', '#A85B00', '#004DA8', '#8400A8']
+    }]
 
 
 # Flask-WTF flag for CSRF
