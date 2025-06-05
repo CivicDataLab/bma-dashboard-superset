@@ -41,7 +41,7 @@ EXTRA_CATEGORICAL_COLOR_SCHEMES = [
         "id": 'riskPointStatusAlphabetical',
         "description": 'Risk Point status alphabetical order',
         "label": 'Risk Point Status Alphabetical',
-        "colors": ['#228121', '#e04f9c', '#eab932', '#682a74', '#ac2826']
+        "colors": ['#859e69', '#99ce30', '#f1d12d', '#f17ed4', '#fd676a']
     }, {
         "id": 'riskPointCategories',
         "description": 'Risk Point categories color',
