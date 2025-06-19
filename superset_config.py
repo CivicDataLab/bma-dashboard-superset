@@ -4,7 +4,7 @@ APP_NAME = "BMA Dashboard"
 FAVICONS = [{"href": "/static/custom/logos/bma-logo-favicon.png"}]
 APP_ICON = "/static/custom/logos/bma-logo-horiz.png"
 
-LOGO_TARGET_PATH = "/superset/dashboard/10"
+LOGO_TARGET_PATH = "superset/dashboard/bma-flood-risk/"
 LOGO_TOOLTIP = "BMA Dashboard"
 
 ROW_LIMIT = 5000
