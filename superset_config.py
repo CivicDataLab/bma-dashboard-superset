@@ -38,20 +38,21 @@ EXTRA_CATEGORICAL_COLOR_SCHEMES = [
         "label": 'Risk Point Performance Bar Chart',
         "colors": ['#eab932', '#682a74', '#228121', '#e04f9c', '#ac2826']
     }, {
-        "id": 'riskPointStatusAlphabetical',
-        "description": 'Risk Point status alphabetical order',
+        "id": 'riskPointStatusAlphabeticalCode',
+        "description": 'Risk Point status code alphabetical order',
         "label": 'Risk Point Status Alphabetical',
-        "colors": ['#859e69', '#99ce30', '#f1d12d', '#f17ed4', '#fd676a']
+        "colors": [
+        "#f95d6a",
+        "#ff87d2",
+        "#f7c948",
+        "#b0d135",
+        "#547d38",
+        ],
     }, {
         "id": 'riskPointCategories',
         "description": 'Risk Point categories color',
         "label": 'Risk Point Categories',
         "colors": ['#8400A8', '#004DA8', '#A85B00']
-    }, {
-        "id": 'combinationRiskPoints',
-        "description": 'Risk Point combination color',
-        "label": 'Combination Risk Points',
-        "colors": ['#228121', '#e04f9c', '#eab932', '#682a74', '#ac2826', '#A85B00', '#004DA8', '#8400A8']
     }]
 
 
